@@ -1,24 +1,30 @@
-class Person
-  def initialize(name)
-    @name = name
-  end
-  
-  def greet
-    puts "Hello I am #{@name}"
+class Foo
+  def an_instance_method
+    puts "I am instance method"
   end
 
-  def what
-    puts "I am an instance method #{self}"
+  def self.class_method
+    puts "I am class method"
   end
-
-  def self.what
-    puts "I am a class method #{self}"
-  end
-
 end
 
-person1 = Person.new("John")
+foo_1 = Foo.new
+foo_2 = Foo.new
 
+foo_1.an_instance_method
+foo_2.an_instance_method
+Foo.class_method
 
-person1.what
-Person.what
+def foo_1.singleton_method
+  puts "I am a singleton method"
+end
+
+foo_1.singleton_method
+
+class << foo_2
+  def another_singleton_method
+    puts "I am another singleton method"
+  end
+end
+
+foo_2.another_singleton_method
