@@ -1,30 +1,19 @@
-class Foo
-  def an_instance_method
-    puts "I am instance method"
+class Animal
+  @@population = 0
+  def initialize
+    @@population += 1
   end
 
-  def self.class_method
-    puts "I am class method"
+  def self.count
+    @@population
   end
-end
-
-foo_1 = Foo.new
-foo_2 = Foo.new
-
-foo_1.an_instance_method
-foo_2.an_instance_method
-Foo.class_method
-
-def foo_1.singleton_method
-  puts "I am a singleton method"
-end
-
-foo_1.singleton_method
-
-class << foo_2
-  def another_singleton_method
-    puts "I am another singleton method"
+  def count
+    @@population
   end
 end
 
-foo_2.another_singleton_method
+animal1 = Animal.new
+animal2 = Animal.new
+animal3 = Animal.new
+
+puts "Number of animals #{Animal.count}"
